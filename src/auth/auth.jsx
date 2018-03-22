@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 
-import { login, signup } from './authActions'
+import { login, signUp } from './authActions'
 import Row from '../common/layout/row'
 import Grid from '../common/layout/grid'
 import If from '../common/operator/if'
@@ -24,8 +24,8 @@ class Auth extends Component {
     }
 
     onSubmit(values) {
-        const { login, signup } = this.props
-        this.state.loginMode ? login(values) : signup(values)
+        const { login, signUp } = this.props
+        this.state.loginMode ? login(values) : signUp(values)
     }
 
     render() {
@@ -68,5 +68,5 @@ class Auth extends Component {
 
 
 Auth = reduxForm({ form: 'authForm' })(Auth)
-const mapDispatchToProps = dispatch => bindActionCreators({ login, signup }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ login, signUp }, dispatch)
 export default connect(null, mapDispatchToProps)(Auth)
